@@ -1,5 +1,6 @@
 package com.example.springbootjenkins;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -16,4 +17,6 @@ public interface OilRepo extends JpaRepository<Oil, Date> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM oil")
     List<Oil> getOilByNative();
+
+    List<Oil> findBy(Pageable pageable);
 }
